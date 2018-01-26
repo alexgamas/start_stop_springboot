@@ -1,2 +1,2 @@
 # start_stop_springboot
-Service Like deamon to Start and Stop a spring boot .jar application
+Service like daemon to start and stop a spring boot .jar application
