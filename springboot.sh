@@ -1,12 +1,19 @@
 #!/bin/sh
 
-# Quick start-stop-daemon example, derived from Debian /etc/init.d/ssh
+
 set -e
+
+if [ -n `which java` ]; then
+  echo "Java not installed."
+  exit 1
+fi
+
+JAVA=`which java`
 
 NAME=springboot
 PIDFILE=/var/run/$NAME.pid
 
-DAEMON=/usr/lib/jvm/java-8-openjdk-amd64/bin/java
+DAEMON=$JAVA
 DAEMON_OPTS="-jar /app/springboot.jar"
 
 export PATH="${PATH:+$PATH:}/usr/sbin:/sbin"
