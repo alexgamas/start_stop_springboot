@@ -3,8 +3,8 @@
 
 set -e
 
-if [ -n `which java` ]; then
-  echo "Java not installed."
+if [ ! "`which java`" ]; then
+  echo "Java not found. Pleanse install."
   exit 1
 fi
 
@@ -22,7 +22,7 @@ case "$1" in
   start)
         echo -n "Starting daemon: "$NAME" "
 	# --verbose --background --make-pidfile
-	start-stop-daemon --start --verbose --background --pidfile $PIDFILE --make-pidfile  --exec "$DAEMON" -- $DAEMON_OPTS
+	start-stop-daemon --start --verbose --pidfile $PIDFILE --make-pidfile  --exec "$DAEMON" -- $DAEMON_OPTS
         echo "."
 	;;
   stop)
